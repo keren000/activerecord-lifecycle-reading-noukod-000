@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   before_validation :make_title_case
 
-# New Code!!
+  # New Code!!
   before_save :email_author_about_post
 
   private
@@ -14,6 +14,9 @@ class Post < ActiveRecord::Base
     if title.split.any?{|w|w[0].upcase != w[0]}
       errors.add(:title, "Title must be in title case")
     end
+  end
+
+  def email_author_about_post
   end
 
   def make_title_case
